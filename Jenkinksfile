@@ -8,10 +8,13 @@ pipeline
     }
 stages
 {
+    stage('copy')
+    {
     steps
     {
         sh 'cp -r index.html /var/www/html/'
     }
+}
 }
 }
 
