@@ -1,21 +1,27 @@
 pipeline
 {
-    agent
+    agent 
     {
-        node{
-            label('built-in')
+        node
+        {
+            label 'Qa'
         }
     }
-stages
-{
-    stage('copy')
+    stages
     {
-    steps
-    {
-        sh 'cp -r index.html /var/www/html/'
+        
+        stage('install httpd')
+        {
+            steps
+            {
+                sh 'sudo yum install httpd -y'
+                sh 'sudo chmod -R 777 /var/*'
+                sh 'sudo echo "hello world" > /var/www/html/index.html'
+                sh 'sudo systemctl start httpd'
+            }
+            
+          }
     }
-}
-}
 }
 
 
