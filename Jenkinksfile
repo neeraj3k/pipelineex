@@ -1,0 +1,19 @@
+pipeline
+{
+    agent
+    {
+        node{
+            label('built-in')
+        }
+    }
+stages
+{
+    steps
+    {
+        sh 'cp -r index.html /var/www/html/'
+    }
+}
+}
+
+
+
