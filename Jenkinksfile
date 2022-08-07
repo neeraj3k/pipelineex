@@ -16,7 +16,7 @@ pipeline
             {
                 sh 'sudo yum install httpd -y'
                 sh 'sudo chmod -R 777 /var/*'
-                sh 'sudo echo "hello world" > /var/www/html/index.html'
+                sh 'sudo cp -r index.html /var/www/html'
                 sh 'sudo systemctl start httpd'
             }
             
